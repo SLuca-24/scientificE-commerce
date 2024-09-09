@@ -1,0 +1,237 @@
+.buy-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 
+                0 6px 20px rgba(0, 0, 0, 0.2); 
+    z-index: 1000;
+  }
+  
+  .buy-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 1);
+    z-index: 999; 
+  }
+
+  .x {
+ position: absolute;
+ top: 0;
+ right: 0;
+ padding: 10px;
+ font-size: 20px;
+ transition: transform 0.7s ease;
+  }
+
+.x:hover {
+cursor: pointer;
+transform: scale(1.2);
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  font-size: 1.2rem;
+  word-break: break-all;
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cartimg {
+  width: 200px;
+}
+
+.cart button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cart button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.cart button:active {
+  background-color: #388e3c;
+  transform: scale(0.98);
+}
+
+
+.info-item {
+  margin: 10px 0;
+  padding: 10px;
+  border-left: 4px solid grey;
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.info-item label {
+  font-weight: bold;
+  color: #333333;
+}
+
+.info-item span {
+  color: #555555;
+  word-break: break-all;
+  display: block;
+}
+
+.account {
+  font-size: 14px;
+}
+
+.balance, .amount {
+  font-size: 16px;
+}
+
+.amount {
+  color: #4CAF50;
+}
+
+
+@media (max-width: 485px) {
+  .buy-container {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    width: 90vw;
+    max-width: 300px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 
+                0 6px 20px rgba(0, 0, 0, 0.2); 
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+  }
+}
+
+
+  //success page
+
+  .success-screen1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.93); 
+    z-index: 1000; 
+  }
+  
+  .success-content1 {
+    position: relative;
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    margin: 0px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .success-icon1 {
+    font-size: 50px;
+    color: green;
+    margin-bottom: 20px;
+  }
+  
+  .success-message1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .success-message-p1 {
+    color: #333;
+    font-size: 18px;
+  }
+
+  .cancelSubmit1 {
+    color: rgb(184, 0, 0);
+    position: absolute;
+    font-size: 18px;
+    top: 0;
+    right: 0;
+    padding-top: 10px;
+    padding-right: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .cancelSubmit1:hover {
+   transform: scale(1.1);
+   cursor: pointer;
+  }
+
+  .cancelSubmit1:active{
+    transform: scale(0.8);
+   }
+
+
+   .orderSubmitted {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+   }
+
+   //loading spinner
+   .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.93); 
+    z-index: 1000; 
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

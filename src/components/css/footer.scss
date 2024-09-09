@@ -1,0 +1,274 @@
+
+/* Styles for the footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.social-media {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.contact-button {
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+
+.payment-methods {
+    margin-bottom: 20px;
+}
+
+.payment-methods img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+}
+
+.footer-bottom {
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.social {
+    font-size: 1.5rem;
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    transition: color 0.5s ease;
+}
+
+#tw:hover {
+    color: #9b9b9b;
+}
+
+#insta:hover{
+    color: #C13584
+;
+}
+
+#linkedin:hover{
+    color: #0077B5
+    ;
+}
+
+.paymentsMethod{
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-top: 15px;
+    transition: color 0.5s ease;
+}
+
+#visa:hover {
+    color: #1A1F71 ;
+}
+
+#mastercard:hover {
+    color: #EB001B;
+}
+
+
+#pp:hover {
+    color: #003087;
+}
+
+
+#eth:hover {
+    color: #627EEA;
+}
+
+
+#btc:hover {
+    color: #F7931A;
+}
+
+//stile form
+
+
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-top: 40px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-input,
+  .form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #0056b3;
+  }
+
+  .form-button:active {
+    transform: scale(0.8);
+  }
+  
+  .form-input:focus,
+  .form-select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  @media (max-width: 600px) {
+    .contact-form {
+      padding: 10px;
+      padding-top: 40px;
+    }
+  
+    .form-button {
+      font-size: 16px;
+    }
+  }
+
+  .cancelForm {
+    color: rgb(184, 0, 0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .cancelForm:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+   }
+ 
+   .cancelForm:active{
+     transform: scale(0.8);
+    }
+  
+
+  //success page
+
+  .success-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+  }
+  
+  .success-content {
+    position: relative;
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    margin: 0px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .success-icon {
+    font-size: 50px;
+    color: green;
+    margin-bottom: 20px;
+  }
+  
+  .success-message {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .success-message-p {
+    color: #333;
+    font-size: 18px;
+  }
+
+  .cancelSubmit {
+    color: rgb(184, 0, 0);
+    position: absolute;
+    font-size: 18px;
+    top: 0;
+    right: 0;
+    padding-top: 10px;
+    padding-right: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .cancelSubmit:hover {
+   transform: scale(1.1);
+   cursor: pointer;
+  }
+
+  .cancelSubmit:active{
+    transform: scale(0.8);
+   }
+
