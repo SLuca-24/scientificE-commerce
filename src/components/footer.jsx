@@ -157,13 +157,7 @@ const Footer = () => {
     </>
 )}
 
-        <div className="payment-methods">
-        <RiVisaFill className='paymentsMethod'id='visa'/>
-        <FaCcMastercard className='paymentsMethod' id='mastercard'/>
-          <FaPaypal className='paymentsMethod' id='pp'/>
-          <FaEthereum className='paymentsMethod' id='eth'/>
-          <FaBtc  className='paymentsMethod' id='btc'/>
-        </div>
+
         <div className="footer-bottom">
           <p>&copy; 2024 Shop-Name. All rights reserved.</p>
         </div>

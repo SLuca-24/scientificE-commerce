@@ -29,7 +29,7 @@
 }
 
 .contact-button {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .button {
@@ -45,23 +45,12 @@
     background-color: #0056b3;
 }
 
-
-.payment-methods {
-    margin-bottom: 20px;
-}
-
-.payment-methods img {
-    width: 40px;
-    height: 40px;
-    margin: 0 10px;
-}
-
 .footer-bottom {
     font-size: 14px;
 }
 
 .footer-bottom p {
-    margin: 0;
+    margin: 10px 0px;
 }
 
 .social {
@@ -86,39 +75,9 @@
     ;
 }
 
-.paymentsMethod{
-    font-size: 1.5rem;
-    padding: 10px;
-    margin-top: 15px;
-    transition: color 0.5s ease;
-}
 
-#visa:hover {
-    color: #1A1F71 ;
-}
-
-#mastercard:hover {
-    color: #EB001B;
-}
-
-
-#pp:hover {
-    color: #003087;
-}
-
-
-#eth:hover {
-    color: #627EEA;
-}
-
-
-#btc:hover {
-    color: #F7931A;
-}
 
 //stile form
-
-
 
 .contact-form {
     max-width: 500px;

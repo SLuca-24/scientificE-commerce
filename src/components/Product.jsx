@@ -135,7 +135,6 @@ const orderNumber = Math.floor(Math.random() * max)
 
         { isTransactionLoading &&(
            <div className="loading-spinner">
-           <p>Processing transaction...</p>
            <div className="spinner"></div>
          </div>
         )}
