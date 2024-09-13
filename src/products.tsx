@@ -1,19 +1,17 @@
-// import rivista1 from './components/img/rivista1.png'
 import rivista2 from './components/img/rivista2.2.png'
 import rivista3 from './components/img/rivista3.3.png'
 import rivista4 from './components/img/rivista4.4.png'
 import rivista5 from './components/img/rivista5.5.png'
 import rivista6 from './components/img/rivista1.png'
 
+interface Product {
+    id: number;
+    productName: string;
+    price: number;
+    productImage: string;
+}
 
-export const PRODUCTS = [
-   // {
-   //     id: 1,
-   //     productName: "Cosmic Horizons",
-   //     price: 0.02,
-   //     productImage: rivista1
-   //
-   // },
+export const PRODUCTS: Product[] = [
 
     {
         id: 2,

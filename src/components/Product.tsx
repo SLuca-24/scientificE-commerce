@@ -1,25 +1,32 @@
-import React, { useState, useContext } from 'react'
+import React, { FC, useState, useContext } from 'react'
 import './css/buy.scss'
 import { MdCancel } from "react-icons/md";
-import { ShopContext } from './context/shopContext';
+import { useShopContext } from './context/shopContext';
 import { useWallet } from './context/WalletContext';
 import { ethers } from 'ethers';
 import { BiBadgeCheck } from "react-icons/bi";
 
 
+declare let window: any;
+
+interface ProductProps {
+  data: {
+    id: number;
+    productName: string;
+    price: number;
+    productImage: string;
+  };
+}
 
 
+const Product: FC<ProductProps> = (props) => {
 
-
-
-const Product = (props) => {
-
-  const { addToCart} = useContext(ShopContext)
-  const [isCarted, setIsCarted] = useState(false);
+  const { addToCart} = useShopContext();
+  const [isCarted, setIsCarted] = useState<boolean>(false);
   const {isWalletConnected, account, balance}= useWallet();
-  const [transactionCompleted, setTransactionCompleted] = useState(false);
-  const  [etherScanLink, setEtherScanLink] = useState('');
-  const [isTransactionLoading, setIsTransactionLoading] = useState(false)
+  const [transactionCompleted, setTransactionCompleted] = useState<boolean>(false);
+  const [etherScanLink, setEtherScanLink] = useState<string>('');
+  const [isTransactionLoading, setIsTransactionLoading] = useState<boolean>(false)
 
   if (!props.data) {
     return <div></div>;
@@ -40,10 +47,12 @@ const x = () => {
     setIsCarted(false);
 }
 
-const {id, productName, price, productImage} = props.data
+const {id, productName, price, productImage} = props.data;
+
+const balanceNumber = balance ? parseFloat(balance) : 0;
 
 const isBalanceEnought = () => {
-  if(balance >= price){
+  if(balanceNumber >= price){
     return <button style={{backgroundColor: '#4CAF50'}} onClick={transaction}>Submit transaction</button>
   } else {
     return <button style={{backgroundColor: '#d32f2f'}}>You do not have enough ETH</button>
@@ -114,17 +123,17 @@ const orderNumber = Math.floor(Math.random() * max)
              <div className='cart'>
              <img src={productImage} alt={productName} className='cartimg'/>
 
-             <div class="info-item account">
+             <div className="info-item account">
              <label>Your Account:</label>
              <span>{account}</span>
              </div>
 
-             <div class="info-item balance">
+             <div className="info-item balance">
              <label>Your Balance:</label>
              <span>{balance} ETH</span>
              </div>
 
-             <div class="info-item amount">
+             <div className="info-item amount">
              <label>Amount Requested:</label>
              <span>{price} ETH</span>
              </div>

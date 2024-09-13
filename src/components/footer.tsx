@@ -1,17 +1,12 @@
-import React, {useState}  from 'react';
+import React, {FC, useState}  from 'react';
 import './css/footer.scss';
 import { BsInstagram } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaEthereum } from "react-icons/fa";
-import { FaPaypal } from "react-icons/fa";
-import { RiVisaFill } from "react-icons/ri";
-import { FaCcMastercard } from "react-icons/fa";
-import { FaBtc } from "react-icons/fa";
 import { BiBadgeCheck } from "react-icons/bi";
 import { MdCancel } from "react-icons/md";
 
-const Footer = () => {
+const Footer: FC = () => {
 
   const [contactForm, setContactForm] = useState(false)
   
@@ -32,7 +27,7 @@ const Footer = () => {
     contactType: 'general',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -43,7 +38,7 @@ const Footer = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Aggiungi qui la logica per gestire l'invio del form (es. invio dati a un server)
     console.log('Dati del form inviati:', formData);

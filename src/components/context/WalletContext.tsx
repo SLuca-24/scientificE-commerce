@@ -1,20 +1,34 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect, ReactNode  } from 'react';
 import { ethers } from 'ethers';
 
-// Crea il contesto
-const WalletContext = createContext(null);
+declare let window: any;
 
-export const WalletProvider = ({ children }) => {
+interface WalletContextType {
+  isWalletConnected: boolean;
+  account: string | null;
+  balance: string | null;
+  network: string | null;
+  connectWallet: ()=> Promise<void>;
+}
+
+
+const WalletContext = createContext<WalletContextType | undefined>(undefined);
+
+interface WalletProviderProps {
+  children: ReactNode;
+}
+
+export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
-  const [account, setAccount] = useState(null);
-  const [balance, setBalance] = useState(null);
-  const [network, setNetwork] = useState(null);
+  const [account, setAccount] = useState<string | null>(null);
+  const [balance, setBalance] = useState<string | null>(null);
+  const [network, setNetwork] = useState<string | null>(null);
 
   // Funzioni per connettere e gestire il wallet
   const connectWallet = async () => {
     if (window.ethereum) {
       try {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const accounts: string[] = await window.ethereum.request({ method: 'eth_requestAccounts' });
         console.log('Account succesfully connected:', accounts[0]);
         await accountChangeHandler(accounts[0]);
         setIsWalletConnected(true);
@@ -26,15 +40,15 @@ export const WalletProvider = ({ children }) => {
     }
   };
 
-  const accountChangeHandler = async (newAccount) => {
+  const accountChangeHandler = async (newAccount: string) => {
     setAccount(newAccount);
      await getAccountBalance(newAccount);
-    const network = await window.ethereum.request({ method: 'net_version' });
+    const network: string = await window.ethereum.request({ method: 'net_version' });
     setNetwork(networkFriendlyName(network));
   };
 
-  const getAccountBalance = async (address) => {
-    const balance = await window.ethereum.request({ method: 'eth_getBalance', params: [address, 'latest'] });
+  const getAccountBalance = async (address: string) => {
+    const balance: string = await window.ethereum.request({ method: 'eth_getBalance', params: [address, 'latest'] });
     setBalance(ethers.utils.formatEther(balance));
   };
 
@@ -44,7 +58,7 @@ export const WalletProvider = ({ children }) => {
 
   useEffect(() => {
     if (window.ethereum) {
-      const handleAccountsChanged = (accounts) => {
+      const handleAccountsChanged = (accounts: string[]) => {
         if (accounts.length > 0) {
           accountChangeHandler(accounts[0]);
           window.location.reload();
@@ -65,7 +79,7 @@ export const WalletProvider = ({ children }) => {
     }
   }, []);
 
-  const networkFriendlyName = (networkId) => {
+  const networkFriendlyName = (networkId: string) => {
     switch (networkId) {
       case '1':
         return 'Ethereum Mainnet';
@@ -91,4 +105,10 @@ export const WalletProvider = ({ children }) => {
   );
 };
 
-export const useWallet = () => useContext(WalletContext);
+export const useWallet = (): WalletContextType => {
+  const context = useContext(WalletContext);
+  if (context === undefined) {
+    throw new Error('useWallet must be used within a WalletProvider');
+  }
+  return context;
+};
