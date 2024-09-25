@@ -55,7 +55,7 @@ const isBalanceEnought = () => {
   if(balanceNumber >= price){
     return <button style={{backgroundColor: '#4CAF50'}} onClick={transaction}>Submit transaction</button>
   } else {
-    return <button style={{backgroundColor: '#d32f2f'}}>You do not have enough ETH</button>
+    return <button style={{backgroundColor: '#d32f2f', pointerEvents: 'none'}}>You do not have enough ETH</button>
   }
 }
 

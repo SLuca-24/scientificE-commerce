@@ -27,6 +27,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -36,7 +37,7 @@
 
 
 .header-div img {
-    width: 75px;
+    width: 85px;
     padding: 30px;
     transition: transform 0.3s ease;
     animation: rotate 10s linear infinite;
@@ -57,7 +58,7 @@
   color: rgb(105, 105, 105);
 }
 
-@media (max-width: 530px){
+@media (max-width: 630px){
   .logo-name h1{
     display: none;
   }
@@ -65,22 +66,56 @@
 
 .connectwalleticon {
     position: relative;
-    margin-top: 10px;
-    padding: 30px;
-    font-size: 62px;
+    font-size: 1.4rem;
+    margin-right: 30px;
+    border-radius: 10px;
+    padding: 15px;
+    background: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
+
     transition: transform 0.3s ease;
     animation: fadeInUp 0.8s ease-out;
-    opacity: 0;
+    transition: filter 0.3s ease;
     animation-fill-mode: forwards;
     color: rgb(182, 182, 182);
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .connectwalleticon:hover {
     cursor: pointer;
-    color: rgb(151, 151, 151);  
+    opacity: 10;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    filter: brightness(0.9);
+
 }
 
 .connectwalleticon:active {
+transform: scale(0.8);
+}
+
+.connectwalleticon-connected {
+  position: relative;
+  font-size: 1.4rem;
+  margin-right: 30px;
+  border-radius: 10px;
+  padding: 15px;
+  background: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
+
+  transition: transform 0.3s ease;
+  animation: fadeInUp 0.8s ease-out;
+  transition: filter 0.3s ease;
+  animation-fill-mode: forwards;
+  color: rgb(182, 182, 182);
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.connectwalleticon-connected:hover {
+  cursor: pointer;
+  color: rgb(151, 151, 151);  
+}
+
+.connectwalleticon-connected:active {
 transform: scale(0.8);
 }
 
@@ -145,12 +180,5 @@ transform: scale(0.8);
 }
 
 .balancee {
-  padding: 20px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#balance-currency {
-  padding-left: 10px;
+  padding: 40px 0px;
 }

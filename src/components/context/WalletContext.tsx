@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect, ReactNode  } from 'react';
 import { ethers } from 'ethers';
 
+
 declare let window: any;
 
 interface WalletContextType {
@@ -24,7 +25,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [balance, setBalance] = useState<string | null>(null);
   const [network, setNetwork] = useState<string | null>(null);
 
-  // Funzioni per connettere e gestire il wallet
+  // connetterewallet
   const connectWallet = async () => {
     if (window.ethereum) {
       try {
@@ -49,7 +50,14 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const getAccountBalance = async (address: string) => {
     const balance: string = await window.ethereum.request({ method: 'eth_getBalance', params: [address, 'latest'] });
-    setBalance(ethers.utils.formatEther(balance));
+    const network: string = await window.ethereum.request({ method: 'net_version' });
+    const formattedBalance = ethers.utils.formatEther(balance);
+    
+    if (network === '137') {
+      setBalance(`${formattedBalance} MATIC`);
+    } else {
+      setBalance(`${formattedBalance} ETH`);
+    }
   };
 
   const chainChangedHandler = () => {
@@ -93,10 +101,14 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         return 'Kovan Test Network';
       case '11155111':
         return 'Sepolia Test Network';
+      case '137':
+        return 'Polygon Mainnet';
       default:
         return 'Unknown Network';
     }
   };
+  
+  
 
   return (
     <WalletContext.Provider value={{ isWalletConnected, account, balance, network, connectWallet }}>

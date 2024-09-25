@@ -1,7 +1,6 @@
 import React from 'react';
 import './css/header.scss';
 import logo from './img/logo.png';
-import { FaConnectdevelop, FaEthereum } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { useWallet } from './context/WalletContext'; 
 
@@ -21,20 +20,21 @@ const Header = () => {
         <>
           <div className='logo-name'>
           <img src={logo} alt='logo'/>
-          <h1>Shop-Name</h1>
+          <h1>ScienceLens</h1>
         </div>
           <div className='connectwalleticon' onClick={connectWallet}>
-            <FaConnectdevelop />
+            Connect Wallet
           </div>
         </>
       ) : (
         <>
         <div className='logo-name'>
           <img src={logo} alt='logo'/>
-          <h1>Shop-Name</h1>
+          <h1>ScienceLens</h1>
         </div>
-          <div className='connectwalleticon' onClick={toggleEth}>
-            <FaEthereum id="ethlogo" />
+          <div className='connectwalleticon-connected' onClick={toggleEth}>
+        {account && <span>{`${account.slice(0, 4)}...${account.slice(-4)}`}</span>}
+
           </div>
         </>
       )}
@@ -48,8 +48,8 @@ const Header = () => {
           <div className='cancelbutton'>
             <button onClick={toggleEth}><MdCancel /></button>
           </div>
-          <div className='address'>Address: {account}<br/>({network})</div>
-          <div className='balancee'>Balance: {balance} <FaEthereum id="balance-currency"/></div>
+          <div className='address'><strong>Address:</strong><br/> {account}<br/>({network})</div>
+          <div className='balancee'><strong>Balance:</strong><br/> {balance}</div>
         </div>
       )}
     </div>
