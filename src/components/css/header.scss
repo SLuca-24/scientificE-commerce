@@ -1,5 +1,5 @@
-
-
+$bluegradient: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
+$grey-color: rgb(182, 182, 182);
 
 
 @keyframes rotate {
@@ -50,7 +50,7 @@
 }
 
 .logo-name h1 {
-  color: rgb(182, 182, 182);
+  color: $grey-color;
   transition: color 0.5s ease;
 }
 
@@ -70,13 +70,13 @@
     margin-right: 30px;
     border-radius: 10px;
     padding: 15px;
-    background: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
-
+    background: $bluegradient;
     transition: transform 0.3s ease;
     animation: fadeInUp 0.8s ease-out;
     transition: filter 0.3s ease;
     animation-fill-mode: forwards;
-    color: rgb(182, 182, 182);
+
+    color: $grey-color;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -99,13 +99,12 @@ transform: scale(0.8);
   margin-right: 30px;
   border-radius: 10px;
   padding: 15px;
-  background: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
-
+  background: $bluegradient;
   transition: transform 0.3s ease;
   animation: fadeInUp 0.8s ease-out;
   transition: filter 0.3s ease;
   animation-fill-mode: forwards;
-  color: rgb(182, 182, 182);
+  color: $grey-color;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

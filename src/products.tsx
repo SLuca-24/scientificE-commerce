@@ -87,7 +87,7 @@ export const PRODUCTS: Product[] = [
     {
         id: 9,
         productName: "Scientice - Arropace Engineering",
-        price: 0.009,
+        price: 0.0001,
         productImage: rivista9
 
     },

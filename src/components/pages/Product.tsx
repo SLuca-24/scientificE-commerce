@@ -1,8 +1,8 @@
 import React, { FC, useState, useContext } from 'react'
-import './css/buy.scss'
+import '../css/buy.scss'
 import { MdCancel } from "react-icons/md";
-import { useShopContext } from './context/shopContext';
-import { useWallet } from './context/WalletContext';
+import { useShopContext } from '../context/shopContext';
+import { useWallet } from '../context/WalletContext';
 import { ethers } from 'ethers';
 import { BiBadgeCheck } from "react-icons/bi";
 
@@ -23,7 +23,7 @@ const Product: FC<ProductProps> = (props) => {
 
   const { addToCart} = useShopContext();
   const [isCarted, setIsCarted] = useState<boolean>(false);
-  const {isWalletConnected, account, balance}= useWallet();
+  const {isWalletConnected, account, balance, network}= useWallet();
   const [transactionCompleted, setTransactionCompleted] = useState<boolean>(false);
   const [etherScanLink, setEtherScanLink] = useState<string>('');
   const [isTransactionLoading, setIsTransactionLoading] = useState<boolean>(false)
@@ -83,7 +83,10 @@ try{
   setTransactionCompleted(true)
   const transactionHash = tx.hash;
   console.log('Transaction hash:', transactionHash);
-  setEtherScanLink(`https://etherscan.io/tx/${transactionHash}`)
+
+  const networkName = handleNetworkName();
+  setEtherScanLink(`https://${networkName}.etherscan.io/tx/${transactionHash}`)
+  console.log('Transcation made on:',{networkName})
 } catch (error){
   console.log('transaction error:', error)
   setIsTransactionLoading(false)
@@ -94,6 +97,24 @@ const paymentCompleted = () => {
   setTransactionCompleted(false)
   setIsCarted(false);
 }
+
+
+const handleNetworkName = () => {
+  if (network === 'Sepolia Test Network') {
+    return 'sepolia';
+  } else if (network === 'Ethereum Mainnet') {
+    return 'ethereum';
+  } else if (network === 'Ropsten Test Network') {
+    return 'ropsten';
+  } else if (network === 'Rinkeby Test Network') {
+    return 'rinkeby';
+  } else if (network === 'Goerli Test Network') {
+    return 'goerli';
+  } else if (network === 'Kovan Test Network') {
+    return 'kovan';
+  } 
+  return 'Unknown';
+};
 
 
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import './css/header.scss';
-import logo from './img/logo.png';
+import '../css/header.scss';
+import logo from '../img/logo.png';
 import { MdCancel } from "react-icons/md";
-import { useWallet } from './context/WalletContext'; 
+import { useWallet } from '../context/WalletContext'; 
 
 const Header = () => {
   const { isWalletConnected, account, balance, network, connectWallet } = useWallet();

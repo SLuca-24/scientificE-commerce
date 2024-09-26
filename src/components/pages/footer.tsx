@@ -1,5 +1,5 @@
 import React, {FC}  from 'react';
-import './css/footer.scss';
+import '../css/footer.scss';
 import { BsInstagram } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";

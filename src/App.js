@@ -1,8 +1,8 @@
 
-import Header from './components/header';
-import Shop from './components/shop';
-import Product from './components/Product';
-import Footer from './components/footer';
+import Header from './components/pages/header';
+import Shop from './components/pages/shop';
+import Product from './components/pages/Product';
+import Footer from './components/pages/footer';
 import ShopContextProvider from './components/context/shopContext';
 import { WalletProvider } from './components/context/WalletContext';
 

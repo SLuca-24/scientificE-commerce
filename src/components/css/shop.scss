@@ -1,3 +1,5 @@
+$shop-black: rgb(19, 19, 19);
+
 .shop-container {
     margin-top: 100px;
   }
@@ -53,7 +55,8 @@
 
   .buybtn {
     background-color: transparent;
-    border: 2px solid rgb(19, 19, 19);
+    border: 2px solid;
+    border-color: $shop-black;
     min-width: 100px;
     padding: 5px 10px;
     border-radius: 15px;
@@ -61,7 +64,7 @@
   }
   
   .buybtn:hover {
-    background-color: rgb(19, 19, 19);
+    background-color: $shop-black;
     color: white;
     cursor: pointer;
   }

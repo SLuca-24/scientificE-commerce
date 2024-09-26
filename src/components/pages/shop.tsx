@@ -1,5 +1,5 @@
-import './css/shop.scss'
-import {PRODUCTS} from "../products"
+import '../css/shop.scss'
+import {PRODUCTS} from "../../products"
 import Product from './Product'
 
 
