@@ -117,7 +117,7 @@ const orderNumber = Math.floor(Math.random() * max)
 
     {isCarted && (
         <>
-            <div className="popup-overlay"></div>
+            <div className="buy-overlay"></div>
             <div className='buy-container'>
             <div><MdCancel className='x' onClick={x}/></div>
              <div className='cart'>
