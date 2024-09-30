@@ -21,16 +21,26 @@ interface ProductProps {
 
 const Product: FC<ProductProps> = (props) => {
 
+// se metto il props destructor come prima cosa ricevo errore: React Hook "tutti i react hook" is called conditionally. React Hooks must be called in the exact same order in every component render
   const { addToCart} = useShopContext();
   const [isCarted, setIsCarted] = useState<boolean>(false);
   const {isWalletConnected, account, balance, network}= useWallet();
   const [transactionCompleted, setTransactionCompleted] = useState<boolean>(false);
   const [etherScanLink, setEtherScanLink] = useState<string>('');
-  const [isTransactionLoading, setIsTransactionLoading] = useState<boolean>(false)
+  const [isTransactionLoading, setIsTransactionLoading] = useState<boolean>(false);
 
   if (!props.data) {
-    return <div></div>;
+    return <div></div>; //se levo il controllo ricevo questo errore: Cannot destructure property 'id' of 'props.data' as it is undefined.
   }
+
+  const {id, productName, price, productImage} = props.data;
+
+  const ownerAddress = '0xF1cdf08ED6Bfdf845AaD575B08bE1c56E5128a25';
+  const balanceNumber = balance ? parseFloat(balance) : 0;
+  const max = 100000;
+  const orderNumber = Math.floor(Math.random() * max)
+
+
 
   const handleBuy = () => {
     if (!isWalletConnected){
@@ -43,27 +53,18 @@ const Product: FC<ProductProps> = (props) => {
   };
 
 
-const x = () => {
+const cancel = () => {
     setIsCarted(false);
 }
 
-const {id, productName, price, productImage} = props.data;
 
-const balanceNumber = balance ? parseFloat(balance) : 0;
-
-const isBalanceEnought = () => {
+const isBalanceEnough = () => {
   if(balanceNumber >= price){
     return <button style={{backgroundColor: '#4CAF50'}} onClick={transaction}>Submit transaction</button>
   } else {
     return <button style={{backgroundColor: '#d32f2f', pointerEvents: 'none'}}>You do not have enough ETH</button>
   }
 }
-
-
-//transaction 
-
-const ownerAddress = '0xF1cdf08ED6Bfdf845AaD575B08bE1c56E5128a25';
-
 
 
 const transaction = async() => {
@@ -100,26 +101,24 @@ const paymentCompleted = () => {
 
 
 const handleNetworkName = () => {
-  if (network === 'Sepolia Test Network') {
-    return 'sepolia';
-  } else if (network === 'Ethereum Mainnet') {
-    return 'ethereum';
-  } else if (network === 'Ropsten Test Network') {
-    return 'ropsten';
-  } else if (network === 'Rinkeby Test Network') {
-    return 'rinkeby';
-  } else if (network === 'Goerli Test Network') {
-    return 'goerli';
-  } else if (network === 'Kovan Test Network') {
-    return 'kovan';
-  } 
-  return 'Unknown';
+  if (!network){
+    return 'unknown';
+  }
+  const networkMap: { [key: string]: string } = {
+    'Sepolia Test Network': 'sepolia',
+    'Ethereum Mainnet': 'ethereum',
+    'Ropsten Test Network': 'ropsten',
+    'Rinkeby Test Network': 'rinkeby',
+    'Goerli Test Network': 'goerli',
+    'Kovan Test Network': 'kovan'
+  };
+
+  return networkMap[network] || 'Unknown';
 };
 
 
 
-const max = 100000;
-const orderNumber = Math.floor(Math.random() * max)
+
 
   return (
     <>
@@ -140,7 +139,7 @@ const orderNumber = Math.floor(Math.random() * max)
         <>
             <div className="buy-overlay"></div>
             <div className='buy-container'>
-            <div><MdCancel className='x' onClick={x}/></div>
+            <div><MdCancel className='x' onClick={cancel}/></div>
              <div className='cart'>
              <img src={productImage} alt={productName} className='cartimg'/>
 
@@ -159,13 +158,14 @@ const orderNumber = Math.floor(Math.random() * max)
              <span>{price} ETH</span>
              </div>
 
-             <>{isBalanceEnought()}</>
+             <>{isBalanceEnough()}</>
              </div>
             </div>
 
         { isTransactionLoading &&(
            <div className="loading-spinner">
            <div className="spinner"></div>
+           <p className='waiting-p'>it may take up to 2 minutes</p>
          </div>
         )}
 
