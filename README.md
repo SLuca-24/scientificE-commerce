@@ -1,3 +1,24 @@
+# Scientific E-commerce
+
+### Overview
+Scientific E-commerce is a web application designed to manage the sale of scientific blog/magazines.
+The app provides users with an intuitive interface to browse products, add them to a cart, and complete purchases. 
+It’s built using React for the front-end, TypeScript for type safety, and utilizes SCSS for styling. Ethereum transactions are integrated using `ethers.js`, making the app blockchain-enabled for secure payments via the ethereum blockchain.
+
+### Features
+- **Product**: Users can browse a variety of scientific magazines.
+- **Shopping Cart**: Add products to cart and manage them before purchasing, user is able to check if his balance his enough for complete the purchase.
+- **Blockchain Payments**: Integrated with Ethereum for secure transactions using `ethers.js`.
+- **Responsive Design**: The app is fully responsive and optimized for various devices.
+
+
+### Technologies Used
+- **React**: The app's frontend framework for building interactive UIs.
+- **TypeScript**: Ensures robust code with static typing.
+- **SCSS**: Allows for modular and scalable styles.
+- **Ethers.js**: Used for handling Ethereum transactions.
+- **Ethereum**: For secure payments using cryptocurrency.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
