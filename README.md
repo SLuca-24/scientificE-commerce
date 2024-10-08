@@ -7,6 +7,7 @@ It’s built using React for the front-end, TypeScript for type safety, and util
 
 ### Features
 - **Product**: Users can browse a variety of scientific magazines.
+- **Wallet Connection**: Users can connect their waller to the website through the button in the header.
 - **Shopping Cart**: Add products to cart and manage them before purchasing, user is able to check if his balance his enough for complete the purchase.
 - **Blockchain Payments**: Integrated with Ethereum for secure transactions using `ethers.js`.
 - **Responsive Design**: The app is fully responsive and optimized for various devices.
